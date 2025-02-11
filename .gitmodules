@@ -1,3 +1,6 @@
 [submodule "third_party/testlib"]
 	path = third_party/testlib
 	url = https://github.com/MikeMirzayanov/testlib.git
+[submodule "third_party/polygon-cli"]
+	path = third_party/polygon-cli
+	url = https://github.com/kunyavskiy/polygon-cli.git
