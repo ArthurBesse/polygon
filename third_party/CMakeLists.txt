@@ -27,3 +27,16 @@ else()
         message(FATAL_ERROR "Failed to install '${PYTHON_PACKAGE_NAME}' from source.")
     endif()
 endif()
+
+add_custom_command(
+    OUTPUT ${CMAKE_SOURCE_DIR}/.polygon-cli/testlib.h
+    COMMAND polygon-cli init ${PROBLEM_ID}
+    COMMAND polygon-cli update
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    COMMENT "Initializing and updating Polygon problem"
+    VERBATIM
+)
+
+add_custom_target(polygon_init
+    DEPENDS ${CMAKE_SOURCE_DIR}/.polygon-cli/testlib.h
+)
