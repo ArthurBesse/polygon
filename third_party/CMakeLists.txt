@@ -32,6 +32,10 @@ add_custom_command(
     OUTPUT ${CMAKE_SOURCE_DIR}/.polygon-cli/testlib.h
     COMMAND polygon-cli init ${PROBLEM_ID}
     COMMAND polygon-cli update
+	COMMAND polygon-cli add resource src\cmdparser.h
+	COMMAND polygon-cli add solution src\solutions\main_correct_solution.cpp
+	COMMAND polygon-cli add source src\generators\main_generator.cpp
+	COMMAND polygon-cli add validator src\validators\main_validator.cpp
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     COMMENT "Initializing and updating Polygon problem"
     VERBATIM
