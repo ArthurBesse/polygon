@@ -6,7 +6,12 @@
 
 using namespace std;
 
-int main(int argc, char* argv[]) {
+#define llparam(name, min_value, max_value) \
+    parser.set_optional<long long> ("min_" #name, "min_" #name, min_value); \
+    parser.set_optional<long long> ("max_" #name, "max_" #name, max_value);
+
+int main(int argc, char* argv[])
+{
     registerGen(argc, argv, 1);
     rnd.setSeed(argc, argv);
 
