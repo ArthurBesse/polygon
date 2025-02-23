@@ -6,14 +6,17 @@
 using namespace std;
 
 
-int main(int argc, char* argv[]) 
+#define llparam(name, min_value, max_value) \
+    const auto min_##name = opt<long long>("min_" #name, min_value); \
+    const auto max_##name = opt<long long>("max_" #name, max_value); 
+
+int main(int argc, char* argv[])
 {
     registerValidation(argc, argv);
 
-    const auto min_a = opt<long long>("min_a", 1);
-    const auto max_a = opt<long long>("max_a", 1'000'000'000);
-	
-	int const a = inf.readInt(min_a, max_a, "a");
+    llparam(a, 1, 1'000'000'000);
+
+    int const a = inf.readInt(min_a, max_a, "a");
 
     inf.readEoln();
     inf.readEof();
